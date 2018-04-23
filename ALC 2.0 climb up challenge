@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		.header {
+    background-color: #002b80;
+    padding: 40px 30px;
+    color: white;
+}
+* {
+    box-sizing: content-box;
+    }
+
+    ul {
+    margin: 0;
+    padding: 1px;
+}
+
+
+	</style>
+</head>
+<body>
+  <div class="header">
+  	<h1>ORGANISED YOUR LIFE BY CREATING  YOUR CANTACT LIST</h1>
+  <h3>Please use the Button bellow to Create your own List</h3>
+  <section>
+   
+    <form action="#" method="post">
+      <div>
+        <label for="newitem">Add Contact</label>
+        <input type="text" name="newitem" id="newitem" 
+               placeholder="new contact" />
+        <input type="submit" value="Add" />
+      </div>
+    </form>
+     <ol id="todolist" contenteditable="true"></ol>
+  </section>
+  
+  	
+  </div>
+<script>
+(function(){
+
+  var todo = document.querySelector( '#todolist' ),
+      form = document.querySelector( 'form' ),
+      field = document.querySelector( '#newitem' );
+    
+  form.addEventListener( 'submit', function( ev ) {
+    var text = field.value;
+    if ( text !== '' ) {
+      todo.innerHTML += '<li>' + text + ' <button onclick="Delete(this);">Delete</button> </li>';
+      field.value = '';
+    }
+    ev.preventDefault();
+  }, false);
+
+
+
+})();
+  function Delete(currentEl){
+  currentEl.parentNode.parentNode.removeChild(currentEl.parentNode);
+  }
+</script>
+</body>
+</html>
